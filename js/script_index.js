@@ -18,7 +18,17 @@ function usuario_registrado() {
   //Arreglo para ingreso a JSON
   let arreglo_json = JSON.stringify(arreglo_usuarios);
   localStorage.setItem("arreglo_usuarios", arreglo_json);
-  alert("Usuario Registrado")
+
+  Swal.fire({
+    title: "Bienvenido",
+    text: "Usuario Registrado",
+    icon: "success",
+    color: "white",
+    background: "orange",
+    showClass: {
+      popup: "animate__animated animate__backInDown",
+    },
+  });
 }
 
 //Función para buscar usuario para permitirle ingresar a la sección de compras
@@ -42,7 +52,16 @@ function login_usuario() {
     if (resultado_find != null) {
       window.location.assign("carrito.html");
     } else {
-      alert("Usuario no encontrado");
+      Swal.fire({
+        title: "Usuario NO encontrado",
+        text: "Usted aún no se ha registrado",
+        icon: "error",
+        color: "white",
+        background: "orange",
+        showClass: {
+          popup: "animate__animated animate__backInDown",
+        },
+      });
     }
   }
 }

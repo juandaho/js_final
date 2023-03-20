@@ -56,6 +56,12 @@ productList.addEventListener("click", (e) => {
     }
 
     showHTML();
+    Toastify({
+
+      text: "Producto agregado",
+  
+  }).showToast();
+
   }
 });
 
@@ -69,6 +75,11 @@ rowProduct.addEventListener("click", (e) => {
 
     console.log(allProducts);
     showHTML();
+    Toastify({
+
+      text: "Producto eliminado",
+  
+  }).showToast();
   }
 });
 
