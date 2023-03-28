@@ -1,3 +1,5 @@
+//Carrrito y uso de Librería Toasty
+
 //Mensaje
 
 const btnCart = document.querySelector(".container-cart-icon");
@@ -12,18 +14,15 @@ btnCart.addEventListener("click", () => {
 
 //Información especifica del producto
 
-
 const cartInfo = document.querySelector(".cart-product");
 const rowProduct = document.querySelector(".row-product");
 const productList = document.querySelector(".container-items");
-
 
 //Variable del listado del todo los productos.
 
 let allProducts = [];
 let valorTotal = document.querySelector(".total-pagar");
 const countProducts = document.querySelector("#contador-productos");
-
 
 //Evento Click que va agregando y realizando las operaciones de adición del producto escogido.
 
@@ -57,11 +56,8 @@ productList.addEventListener("click", (e) => {
 
     showHTML();
     Toastify({
-
       text: "Producto agregado",
-  
-  }).showToast();
-
+    }).showToast();
   }
 });
 
@@ -76,10 +72,8 @@ rowProduct.addEventListener("click", (e) => {
     console.log(allProducts);
     showHTML();
     Toastify({
-
       text: "Producto eliminado",
-  
-  }).showToast();
+    }).showToast();
   }
 });
 

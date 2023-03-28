@@ -1,4 +1,4 @@
-// Script para ingreso y registro de usuario del index (En este Script se usa JSON)
+// Script para ingreso y registro de usuario del index (En este Script se usa JSON  / Librería SweetAlert / API de clima)
 
 let arreglo_usuarios = [];
 
@@ -39,7 +39,7 @@ function bucar_usuario(usuario) {
   return nombre_usuario == usuario.nombre && pass_usuario == usuario.password;
 }
 
-//Función que realiza el ingreso a los usuarios ya registrados.
+//Función que realiza el ingreso a los usuarios ya registrados y Librería.
 function login_usuario() {
   let arr = localStorage.getItem("arreglo_usuarios");
 
@@ -72,3 +72,24 @@ btn_registro.addEventListener("click", usuario_registrado);
 
 let btn_login = document.getElementById("btn_login");
 btn_login.addEventListener("click", login_usuario);
+
+//API DE CLIMA
+
+function mostrar_posicion(posicion) {
+  let latitud = posicion.coords.latitude;
+  let longitud = posicion.coords.longitude;
+  let key = "e5a04d52fb011d815b62f9b3302fdfd4";
+
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=${latitud}&lon=${longitud}&appid=${key}&units=metric&lang=es`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      var texto = document.getElementById("prueba");
+      var clima = document.createElement("h2");
+      clima.innerHTML = `${data.weather[0].description} - ${data.main.temp}°`;
+      texto.appendChild(clima);
+    });
+}
+
+navigator.geolocation.getCurrentPosition(mostrar_posicion);
