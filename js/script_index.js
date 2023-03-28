@@ -85,7 +85,7 @@ function mostrar_posicion(posicion) {
   )
     .then((response) => response.json())
     .then((data) => {
-      var texto = document.getElementById("prueba");
+      var texto = document.getElementById("info_clima");
       var clima = document.createElement("h2");
       clima.innerHTML = `${data.weather[0].description} - ${data.main.temp}°`;
       texto.appendChild(clima);
